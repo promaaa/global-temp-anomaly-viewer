@@ -1,0 +1,40 @@
+.histogram-container {
+  padding: 24px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+}
+
+.histogram-container h3 {
+  margin: 0 0 12px 0;
+  color: var(--text-primary);
+  font-size: 1.4em;
+  font-family: 'Fira Mono', monospace;
+}
+
+.histogram-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9em;
+  margin-bottom: 20px;
+  font-family: 'Fira Mono', monospace;
+  font-weight: 500;
+}
+
+.histogram-message {
+  text-align: center;
+  padding: 60px 40px;
+  color: var(--text-tertiary);
+  font-size: 1em;
+  font-family: 'Fira Mono', monospace;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  border: 2px dashed var(--border-color);
+}
+
+.world-map-cell-histogram-highlight {
+  outline: 3px solid #ff6b6b !important;
+  outline-offset: -3px;
+  z-index: 100;
+  position: relative;
+}

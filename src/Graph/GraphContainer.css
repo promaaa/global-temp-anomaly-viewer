@@ -1,0 +1,152 @@
+.graph-container {
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.graph-controls {
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.graph-controls div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-elevated);
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.graph-controls div:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+.graph-controls a {
+  font-family: 'Fira Mono', monospace;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.graph-controls a:hover {
+  color: var(--primary-color);
+}
+
+.graph-controls input[type="color"] {
+  height: 32px;
+  width: 32px;
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.graph-controls input[type="color"]:hover {
+  transform: scale(1.1);
+  border-color: var(--primary-color);
+}
+
+.chart-link-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.chart-link-container nav {
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-xl);
+  padding: 4px;
+  display: flex;
+  gap: 4px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.chart-link {
+  font-family: 'Fira Mono', monospace;
+  padding: 10px 20px;
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.chart-link:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.chart-link.active {
+  background: var(--primary-color);
+  color: white;
+  box-shadow: var(--shadow-sm);
+}
+
+.graph-container section {
+  margin: 16px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: 'Fira Mono', monospace;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.graph-container section input[type="number"] {
+  font-family: 'Fira Mono', monospace;
+  padding: 8px 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-weight: 600;
+  width: 80px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.graph-container section input[type="number"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+}
+
+/* Styles pour la légende Recharts */
+.recharts-legend-wrapper {
+  font-family: 'Fira Mono', monospace !important;
+}
+
+.recharts-legend-item {
+  font-family: 'Fira Mono', monospace !important;
+  font-weight: 600 !important;
+  font-size: 0.85em !important;
+}
+
+.recharts-legend-item-text {
+  color: var(--text-primary) !important;
+  font-family: 'Fira Mono', monospace !important;
+}
+
+/* Force les couleurs des icônes de légende à utiliser les couleurs des lignes/barres */
+.recharts-surface {
+  overflow: visible !important;
+}

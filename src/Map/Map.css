@@ -1,0 +1,155 @@
+:root {
+  --world-map-width: 100%;
+  --world-map-height: 100%;
+}
+
+.world-map-controls {
+  margin-bottom: 16px;
+  padding: 12px;
+  border-radius: var(--radius-md);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.world-map-controls button {
+  font-family: 'Fira Mono', monospace;
+  margin: 0;
+  padding: 10px 16px;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  min-width: auto;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.world-map {
+  width: 100%;
+  aspect-ratio: 1278.33/617.133;
+  position: relative;
+  display: flex;
+  justify-items: flex-end;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+}
+
+.world-map-container {
+  position: relative;
+}
+
+.world-map-img {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(1);
+  background-color: white;
+}
+
+.world-map-data {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  opacity: 75%;
+  
+  z-index: 0;
+}
+
+.world-map-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(90, auto);
+}
+
+.world-map-data-img {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  visibility: visible;
+}
+
+.world-map-cell {
+  opacity: 50%;
+  z-index: 1;
+
+  border: 4px solid rgba(0, 0, 0, 0);
+}
+
+.world-map-cell-highlight {
+  background-color: rgba(74, 158, 255, 0.4);
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+.world-map-cell-selected {
+  background-color: rgba(74, 158, 255, 0.6);
+  box-shadow: inset 0 0 0 2px var(--primary-color);
+}
+
+/* Example of latitude selection style */
+/* .world-map-lat-68 {
+  border-top: 4px solid greenyellow;
+  border-bottom: 4px solid greenyellow;
+} */
+
+.world-map-cell:hover {
+  border: 4px solid var(--primary-color);
+  box-shadow: inset 0 0 8px rgba(74, 158, 255, 0.3);
+}
+
+.latitude-selection-button {
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: calc( var(--world-map-height) / 45 );
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.latitude-selection-button:hover {
+  background: rgba(74, 158, 255, 0.2);
+}
+
+.latitude-selection-button svg {
+  padding: 0;
+  margin: 0;
+  width: 14px;
+  height: calc( var(--world-map-height) / 45 );
+  fill: none;
+  stroke: var(--text-secondary);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.latitude-selection-button:hover svg {
+  stroke: var(--primary-color);
+}
+
+.latitude-selection-button.latitude-selected {
+  background: var(--accent-color);
+}
+
+.latitude-selection-button.latitude-selected svg {
+  stroke: white;
+}

@@ -1,0 +1,93 @@
+:root {
+  --world-map-group-0-color: black;
+  --world-map-group-1-color: yellow;
+  --world-map-group-2-color: green;
+  --world-map-group-3-color: red;
+  --world-map-group-4-color: violet;
+  --world-map-group-5-color: purple;
+  --world-map-group-6-color: magenta;
+  --world-map-group-7-color: orange;
+  --world-map-group-8-color: cyan;
+  --world-map-group-9-color: greenyellow;
+}
+
+.world-map-group-0 {
+  background-color: var(--world-map-group-0-color);
+}
+
+.world-map-group-1 {
+  background-color: var(--world-map-group-1-color);
+}
+
+.world-map-group-2 {
+  background-color: var(--world-map-group-2-color);
+}
+
+.world-map-group-3 {
+  background-color: var(--world-map-group-3-color);
+}
+
+.world-map-group-4 {
+  background-color: var(--world-map-group-4-color);
+}
+
+.world-map-group-5 {
+  background-color: var(--world-map-group-5-color);
+}
+
+.world-map-group-6 {
+  background-color: var(--world-map-group-6-color);
+}
+
+.world-map-group-7 {
+  background-color: var(--world-map-group-7-color);
+}
+
+.world-map-group-8 {
+  background-color: var(--world-map-group-8-color);
+}
+
+.world-map-group-9 {
+  background-color: var(--world-map-group-9-color);
+}
+
+/* Chart colors */
+.chart-group-0 {
+  fill: var(--world-map-group-0-color);
+}
+
+.chart-group-1 {
+  fill: var(--world-map-group-1-color);
+}
+
+.chart-group-2 {
+  fill: var(--world-map-group-2-color);
+}
+
+.chart-group-3 {
+  fill: var(--world-map-group-3-color);
+}
+
+.chart-group-4 {
+  fill: var(--world-map-group-4-color);
+}
+
+.chart-group-5 {
+  fill: var(--world-map-group-5-color);
+}
+
+.chart-group-6 {
+  fill: var(--world-map-group-6-color);
+}
+
+.chart-group-7 {
+  fill: var(--world-map-group-7-color);
+}
+
+.chart-group-8 {
+  fill: var(--world-map-group-8-color);
+}
+
+.chart-group-9 {
+  fill: var(--world-map-group-9-color);
+}
