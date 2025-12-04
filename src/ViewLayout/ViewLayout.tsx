@@ -3,8 +3,9 @@ import { useState } from 'react';
 import { GraphContainer } from '../Graph/GraphContainer';
 import { Histogram } from '../Histogram/Histogram';
 import { Heatmap } from '../Heatmap/Heatmap';
+import { Analysis } from '../Analysis/Analysis';
 
-type ViewType = 'graph' | 'histogram' | 'heatmap';
+type ViewType = 'graph' | 'histogram' | 'heatmap' | 'analysis';
 
 interface ViewConfig {
   type: ViewType;
@@ -16,13 +17,14 @@ export function ViewLayout() {
   const [views, setViews] = useState<ViewConfig[]>([
     { type: 'graph', visible: true, order: 0 },
     { type: 'histogram', visible: true, order: 1 },
-    { type: 'heatmap', visible: true, order: 2 }
+    { type: 'heatmap', visible: true, order: 2 },
+    { type: 'analysis', visible: true, order: 3 }
   ]);
 
   const [layout, setLayout] = useState<'column' | 'grid'>('column');
 
   const toggleView = (type: ViewType) => {
-    setViews(views.map(v => 
+    setViews(views.map(v =>
       v.type === type ? { ...v, visible: !v.visible } : v
     ));
   };
@@ -55,6 +57,8 @@ export function ViewLayout() {
         return <Histogram />;
       case 'heatmap':
         return <Heatmap />;
+      case 'analysis':
+        return <Analysis />;
     }
   };
 
@@ -66,6 +70,8 @@ export function ViewLayout() {
         return 'Histogram by Longitude';
       case 'heatmap':
         return 'Temperature Heatmap';
+      case 'analysis':
+        return 'Trend Analysis';
     }
   };
 
@@ -74,7 +80,7 @@ export function ViewLayout() {
       <div className="layout-controls">
         <h4>View Management</h4>
         <div className="layout-buttons">
-          <button 
+          <button
             className={`layout-button ${layout === 'column' ? 'active' : ''}`}
             onClick={() => setLayout('column')}
             title="Stack views vertically"
@@ -86,7 +92,7 @@ export function ViewLayout() {
             </svg>
             Column
           </button>
-          <button 
+          <button
             className={`layout-button ${layout === 'grid' ? 'active' : ''}`}
             onClick={() => setLayout('grid')}
             title="Arrange views in a grid"

@@ -1,0 +1,145 @@
+.analysis-container {
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.analysis-header {
+  margin-bottom: 30px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.analysis-header h2 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 1.8em;
+}
+
+.analysis-section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.analysis-section h3 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+  font-size: 1.4em;
+}
+
+.section-desc {
+  color: #666;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.trend-stat {
+  font-size: 1.1em;
+  font-weight: 500;
+  background: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.highlight {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.chart-section {
+  background: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.extreme-events {
+  flex: 1;
+  min-width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.extreme-events.warmest {
+  background: linear-gradient(to bottom right, #fff5f5, #fff);
+  border-left: 4px solid #e74c3c;
+}
+
+.extreme-events.coldest {
+  background: linear-gradient(to bottom right, #f0f8ff, #fff);
+  border-left: 4px solid #3498db;
+}
+
+.extreme-events h4 {
+  margin-top: 0;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+.extreme-events ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.extreme-events li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s;
+}
+
+.extreme-events li:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.extreme-events li:last-child {
+  border-bottom: none;
+}
+
+.year {
+  font-weight: bold;
+  color: #555;
+}
+
+.value {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 500;
+}
+
+.warmest .value {
+  color: #c0392b;
+}
+
+.coldest .value {
+  color: #2980b9;
+}
