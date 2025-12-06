@@ -148,9 +148,29 @@
 .heatmap-cell.current-year {
   border-left: 2px solid var(--warning-color);
   border-right: 2px solid var(--warning-color);
+  animation: pulse-year 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-year {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+  }
 }
 
 .heatmap-cell.selected-latitude {
   border-top: 2px solid var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
+}
+
+/* Highlight hovered cells more prominently */
+.heatmap-cell.current-year:hover {
+  animation: none;
+  border: 2px solid var(--warning-color);
+  box-shadow: 0 0 8px 2px rgba(245, 158, 11, 0.6);
 }

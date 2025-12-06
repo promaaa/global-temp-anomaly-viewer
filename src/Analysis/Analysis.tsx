@@ -1,6 +1,8 @@
 import { useMemo } from 'react';
 import { jsondata } from '../assets/data/data';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { useAppSelector } from '../hooks/storeHooks';
+import { store } from '../store/store';
 import './Analysis.css';
 
 interface AnnualData {
@@ -16,6 +18,8 @@ interface DecadalData {
 }
 
 export function Analysis() {
+    const currentYear = useAppSelector((state) => state.controls.year);
+
     const annualData: AnnualData[] = useMemo(() => {
         if (!jsondata || !jsondata.tempdata) return [];
 
@@ -117,12 +121,36 @@ export function Analysis() {
 
     const trendSlope = regressionData.length > 0 ? regressionData[0].slope : 0;
 
+    // Handler for chart clicks - change year on the map
+    const handleChartClick = (e: any) => {
+        if (e && e.activeLabel) {
+            const year = parseInt(e.activeLabel);
+            if (!isNaN(year) && year >= 1880 && year <= 2025) {
+                store.dispatch({
+                    type: 'control/map/changeYear',
+                    payload: year
+                });
+            }
+        }
+    };
+
+    // Handler for year click in extreme events list
+    const handleYearClick = (year: number) => {
+        store.dispatch({
+            type: 'control/map/changeYear',
+            payload: year
+        });
+    };
+
     if (annualData.length === 0) return <div>Loading data...</div>;
 
     return (
         <div className="analysis-container">
             <div className="analysis-header">
                 <h2>Extra metrics</h2>
+                <div className="current-year-indicator">
+                    Selected Year: <span className="highlight">{currentYear}</span>
+                </div>
             </div>
 
             <div className="analysis-section">
@@ -135,12 +163,13 @@ export function Analysis() {
 
                 <div className="chart-section">
                     <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={combinedData}>
+                        <LineChart data={combinedData} onClick={handleChartClick}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="year" />
                             <YAxis label={{ value: 'Anomaly (°C)', angle: -90, position: 'insideLeft' }} />
                             <Tooltip />
                             <Legend />
+                            <ReferenceLine x={currentYear} stroke="#ff4444" strokeWidth={2} strokeDasharray="3 3" label={{ value: currentYear.toString(), position: 'top', fill: '#ff4444' }} />
                             <Line type="monotone" dataKey="avgAnomaly" stroke="#8884d8" dot={false} name="Global Avg" strokeWidth={2} />
                             <Line type="monotone" dataKey="trend" stroke="#ff7300" dot={false} name="Linear Trend" strokeDasharray="5 5" strokeWidth={2} />
                         </LineChart>
@@ -153,12 +182,13 @@ export function Analysis() {
                 <p className="section-desc">Comparing temperature anomalies between Northern and Southern hemispheres.</p>
                 <div className="chart-section">
                     <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={combinedData}>
+                        <LineChart data={combinedData} onClick={handleChartClick}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="year" />
                             <YAxis label={{ value: 'Anomaly (°C)', angle: -90, position: 'insideLeft' }} />
                             <Tooltip />
                             <Legend />
+                            <ReferenceLine x={currentYear} stroke="#ff4444" strokeWidth={2} strokeDasharray="3 3" />
                             <Line type="monotone" dataKey="northAnomaly" stroke="#e74c3c" dot={false} name="Northern Hemisphere" strokeWidth={1.5} />
                             <Line type="monotone" dataKey="southAnomaly" stroke="#3498db" dot={false} name="Southern Hemisphere" strokeWidth={1.5} />
                         </LineChart>
@@ -171,7 +201,7 @@ export function Analysis() {
                 <p className="section-desc">Average temperature anomaly per decade, highlighting the accelerating warming.</p>
                 <div className="chart-section">
                     <ResponsiveContainer width="100%" height={300}>
-                        <LineChart data={decadalData}>
+                        <LineChart data={decadalData} onClick={handleChartClick}>
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="decade" />
                             <YAxis label={{ value: 'Avg Anomaly (°C)', angle: -90, position: 'insideLeft' }} />
@@ -188,7 +218,7 @@ export function Analysis() {
                     <h4>Warmest Years</h4>
                     <ul>
                         {extremeEvents.warmest.map(d => (
-                            <li key={d.year}>
+                            <li key={d.year} className="clickable-year" onClick={() => handleYearClick(d.year)}>
                                 <span className="year">{d.year}</span>
                                 <span className="value">+{d.avgAnomaly.toFixed(3)}°C</span>
                             </li>
@@ -200,7 +230,7 @@ export function Analysis() {
                     <h4>Coldest Years</h4>
                     <ul>
                         {extremeEvents.coldest.map(d => (
-                            <li key={d.year}>
+                            <li key={d.year} className="clickable-year" onClick={() => handleYearClick(d.year)}>
                                 <span className="year">{d.year}</span>
                                 <span className="value">{d.avgAnomaly.toFixed(3)}°C</span>
                             </li>
@@ -211,3 +241,4 @@ export function Analysis() {
         </div>
     );
 }
+

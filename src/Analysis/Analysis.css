@@ -143,3 +143,42 @@
 .coldest .value {
   color: #2980b9;
 }
+
+/* Current year indicator in header */
+.current-year-indicator {
+  margin-top: 8px;
+  font-size: 0.95em;
+  color: var(--text-secondary);
+  font-family: 'Fira Mono', monospace;
+}
+
+.current-year-indicator .highlight {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Clickable year items in extreme events lists */
+.clickable-year {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.clickable-year:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+  transform: translateX(5px);
+  padding-left: 10px !important;
+}
+
+.clickable-year:active {
+  transform: scale(0.98);
+}
+
+/* Chart click feedback */
+.chart-section {
+  cursor: pointer;
+}
+
+.recharts-wrapper {
+  cursor: crosshair !important;
+}

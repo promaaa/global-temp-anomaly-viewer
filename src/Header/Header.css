@@ -1,10 +1,10 @@
 .app-header {
   background: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  padding: 32px;
-  margin-bottom: 24px;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-color);
+  border-radius: 0;
+  padding: 16px 24px;
+  margin-bottom: 0;
+  box-shadow: var(--shadow-md);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .header-content {
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
 }
 
 .header-title {
@@ -21,7 +21,7 @@
 
 .header-title h1 {
   font-family: 'Fira Mono', monospace;
-  font-size: 2.2em;
+  font-size: 1.6em;
   font-weight: 700;
   margin: 0;
   color: var(--text-primary);
@@ -30,9 +30,9 @@
 
 .header-subtitle {
   font-family: 'Fira Mono', monospace;
-  font-size: 0.95em;
+  font-size: 0.85em;
   color: var(--text-secondary);
-  margin: 8px 0 0 0;
+  margin: 4px 0 0 0;
   font-weight: 500;
 }
 
@@ -40,15 +40,15 @@
   .app-header {
     padding: 24px;
   }
-  
+
   .header-title h1 {
     font-size: 1.6em;
   }
-  
+
   .header-subtitle {
     font-size: 0.85em;
   }
-  
+
   .header-content {
     flex-direction: column;
     align-items: flex-start;

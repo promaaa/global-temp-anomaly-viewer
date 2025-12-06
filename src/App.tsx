@@ -30,14 +30,27 @@ function App() {
   return (
     <>
       <div className='viewport'>
-        <Header />
-        <AnimControls />
-        <Map />
-        <SelectionManager />
-        <ViewLayout />
+        <div className='viewport-header'>
+          <Header />
+        </div>
+
+        <div className='viewport-main'>
+          {/* Left Panel: Map & Controls */}
+          <div className='viewport-left'>
+            <AnimControls />
+            <Map />
+            <SelectionManager />
+          </div>
+
+          {/* Right Panel: Graphs & Analysis */}
+          <div className='viewport-right'>
+            <ViewLayout />
+          </div>
+        </div>
       </div>
     </>
   )
 }
 
 export default App
+
