@@ -1,5 +1,7 @@
 # Global Temperature Anomalies Viewer
 
+![Rendu final](assets/img-rendu-final.png)
+
 Interactive web application for visualizing global temperature anomalies from 1880 to 2025.
 
 ## Features
